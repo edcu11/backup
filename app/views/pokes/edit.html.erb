@@ -1,0 +1,47 @@
+<h1>Edit Pokemon</h1>
+<p> <em> Ingrese los datos necesarios: </em> </p>
+
+<% if @poke.errors.any? %>
+  <div>
+    Por favor corrija los siguientes problemas:
+    <ul>
+      <% @student.errors.full_messages.each do |m| %>
+        <li>
+          <%= m %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<form role="form" class="form-inline">
+<%= form_for @poke do |f| %>
+  <p>
+    <%= f.label :name, "Nombre", class: "input-group" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </p>
+
+  <p>
+    <%= f.label :attack, class: "input-group"  %>
+    <%= f.text_field :attack, class: "form-control" %>
+  </p>
+
+  <p>
+    <%= f.label :defense, class: "input-group" %>
+    <%= f.text_field :defense, class: "form-control" %>
+  </p>
+
+  <p>
+    <%= f.label :avatar_url, "Imagen" , class: "input-group"%>
+    <%= f.text_field :avatar_url,  class: "form-control" %>
+  </p>
+
+  <p>
+    <%= f.submit "Update", class: "btn btn-default btn-lg" %>
+    <%= link_to "Cancelar", poke_path(@poke), class:"btn btn-default btn-lg"%>
+  </p>
+
+<% end %>
+
+</form>

@@ -1,0 +1,21 @@
+
+<h1>Listing <%=@category.nombre %></h1>
+<% if flash[:notice] %>
+  <div style="background: yellow">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<ul>
+  <li>
+    ID:
+    <strong><%= @category.id %></strong>
+  </li>
+	<li>
+		Nombre:
+		<strong><%= @category.nombre %></strong>
+	</li>
+</ul>
+
+<%= render partial: "category_pokes", locals: {pokes: @category.pokes} %>
+
+<p> <%= link_to "Regresar", pokes_path %> </p>

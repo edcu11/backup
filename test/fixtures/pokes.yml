@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  attack: 
+  defense: 
+  avatar_url: MyText
+
+two:
+  name: MyText
+  attack: 
+  defense: 
+  avatar_url: MyText

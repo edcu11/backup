@@ -1,0 +1,43 @@
+
+<h1>Listing Pokemon with Id <%=@poke.id %></h1>
+<% if flash[:notice] %>
+  <div style="background: yellow">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<ul class="list-group" >
+  <li>
+    ID:
+    <strong><%= @poke.id %></strong>
+  </li>
+  <li>
+    <%= image_tag @poke.avatar_url %>
+  </li>
+	<li>
+		Nombre:
+		<strong><%= @poke.name %></strong>
+	</li>
+	<li>
+		Attack:
+		<strong><%= @poke.attack %></strong>
+	</li>
+  <li>
+    Defense:
+    <strong><%= @poke.defense %></strong>
+  </li>
+	<li>
+		Average de Reviews:
+		<strong><%= average(@poke.reviews) %></strong>
+	</li>
+</ul>
+
+<%= render partial: "poke_reviews", locals: {reviews: @poke.reviews.order("created_at DESC")} %>
+
+
+<%= render partial: "poke_categories", locals: {categories: @poke.categories} %>
+
+
+<p> <%= link_to "Edit", edit_poke_path, class:"btn btn-default btn-lg" %> </p>
+<p> <%= link_to "New Review", new_poke_review_path(@poke.id), class:"btn btn-default btn-lg" %> </p>
+<p> <%= link_to "Borrar", @poke, method: :delete, data: {confirm: "Are you really sure?"} , class:"btn btn-default btn-lg"%> </p>
+<p> <%= link_to "Regresar", pokes_path , class:"btn btn-default btn-lg"%> </p>

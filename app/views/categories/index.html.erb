@@ -1,0 +1,19 @@
+<h1>Categorias</h1>
+<% if flash[:notice]  %>
+	<div style= "background: yellow">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
+<table border="1" class="table table-bordered table-inverse">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Nombre</th>
+		</tr>
+	</thead>
+	<tbody>
+			<%= render @categories %>
+	</tbody>
+</table>
+		<p> <%= link_to "Agregar Categoria", new_category_path %> </p>

@@ -1,0 +1,16 @@
+<% if pokes.any? %>
+	<div class = "form-group">
+		<h2>Pokemon: </h2>
+		<table border="2" class="table table-inverse">
+			<thead>
+				<th>ID</th>
+				<th>Nombre</th>
+			</thead>
+			<tbody>
+				<%= render pokes %>
+			</tbody>
+		</table>
+	</div>
+<% else %>
+	<p><em>No hay Pokemon.</em></p>
+<% end %>

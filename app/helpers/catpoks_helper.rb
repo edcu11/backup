@@ -1,0 +1,2 @@
+module CatpoksHelper
+end

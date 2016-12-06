@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  autor: MyString
+  descripcion: MyText
+  rev: 1
+  poke_id: 1
+
+two:
+  autor: MyString
+  descripcion: MyText
+  rev: 1
+  poke_id: 1
