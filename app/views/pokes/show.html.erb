@@ -37,6 +37,16 @@
 <%= render partial: "poke_categories", locals: {categories: @poke.categories} %>
 
 
+<% if current_user %>
+  <% unless current_user.pokes.find(@poke.id) %>
+    <%= form_for @userpok, url: user_pokemons_path do |f| %>
+        <%= f.hidden_field :poke_id, value: @poke.id %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.submit "Catch!", class:"btn btn-default btn-lg"%>
+     <% end %>
+  <% end %>
+<% end %>
+
 <p> <%= link_to "Edit", edit_poke_path, class:"btn btn-default btn-lg" %> </p>
 <p> <%= link_to "New Review", new_poke_review_path(@poke.id), class:"btn btn-default btn-lg" %> </p>
 <p> <%= link_to "Borrar", @poke, method: :delete, data: {confirm: "Are you really sure?"} , class:"btn btn-default btn-lg"%> </p>

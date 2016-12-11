@@ -11,8 +11,16 @@ Pokemon::Application.routes.draw do
 
    end
    resources :catpoks
+   resources :users
+   resources :user_pokemons
 
-  get "/:nombre", to: "categories#list", as: "list"
+   get "/login" => "sessions#new"
+   post "/login" => "sessions#create"
+   delete "/logout" => "sessions#destroy"
+
+   get "/profile", to: "sessions#show", as: "profile"
+
+   get "/:nombre", to: "categories#list", as: "list"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

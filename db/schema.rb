@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161203015701) do
+ActiveRecord::Schema.define(version: 20161211044223) do
 
   create_table "categories", force: true do |t|
     t.string   "nombre"
@@ -39,10 +39,28 @@ ActiveRecord::Schema.define(version: 20161203015701) do
   end
 
   create_table "reviews", force: true do |t|
-    t.string   "autor"
     t.text     "descripcion"
     t.integer  "rev"
     t.integer  "poke_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "user_pokemons", force: true do |t|
+    t.integer  "poke_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_pokemons", ["poke_id"], name: "index_user_pokemons_on_poke_id"
+  add_index "user_pokemons", ["user_id"], name: "index_user_pokemons_on_user_id"
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "username"
+    t.text     "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -5,7 +5,9 @@ class Poke < ActiveRecord::Base
 
   has_many :reviews
   has_many :catpoks
+  has_many :user_pokemons
   has_many :categories, through: :catpoks
+  has_many :users, through: :user_pokemons
 
   before_create :default_image
   before_update :default_image

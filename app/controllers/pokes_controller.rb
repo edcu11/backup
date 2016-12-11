@@ -3,11 +3,9 @@ class PokesController < ApplicationController
     @pokes = Poke.order(:name)
   end
 
-  # Usar el param[:id] para extraer el id del estudiante
-  # Buscar el Poke con ese id
-  # Crear una variable de instancia con ese Poke
   def show
     @poke = Poke.find(params[:id])
+    @userpok = UserPokemon.new
   end
 
   def new

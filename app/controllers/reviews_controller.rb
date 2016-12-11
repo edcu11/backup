@@ -8,6 +8,7 @@ def create
   @poke = Poke.find(params[:poke_id])
   @review = @poke.reviews.build(reviews_params)
 
+  @review.user_id=current_user.id
   if @review.save
     redirect_to @poke,  notice: "Se agrego con exito companero"
   else
