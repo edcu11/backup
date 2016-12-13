@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate
   def new
     @user = User.new
   end
@@ -12,6 +13,21 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @user = User.find_by(id: params[:id])
+  end
+
+  def update
+    @user = User.find_by(id: params[:id])
+
+    if @user.update_attributes(user_params)
+      redirect_to profile_path,  notice: "Se edito con exito companero"
+    else
+      render :edit
+    end
+  end
+
 
   protected
 

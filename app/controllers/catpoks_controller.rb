@@ -1,4 +1,6 @@
 class CatpoksController < ApplicationController
+
+  
   def new
     @catpok = Catpok.new
   end

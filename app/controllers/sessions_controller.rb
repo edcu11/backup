@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  skip_before_action :authenticate
+  skip_before_action :authenticate_u, only: [:new, :create]
+
   def new
   	if current_user
   		redirect_to root_path
@@ -6,10 +9,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	email = params[:session][:email]
   	password = params[:session][:password]
+    username = params[:session][:username]
 
-    @user = User.find_by(email: email)
+
+    @user = User.find_by(email: username)
 
   	if @user && @user.authenticate(password)
   		login(@user)
@@ -25,4 +29,5 @@ class SessionsController < ApplicationController
   def destroy
   	logout
   end
+
 end

@@ -1,8 +1,12 @@
 
 <tr  class="table-active">
 	<td><%= format_date(review.created_at) %></td>
-	<td><%= User.find(review.user_id).username%></td>
   <td><%= review.descripcion%></td>
   <td><%= review.rev%></td>
-  <td><%= link_to "Borrar", poke_review_path(review.poke, review), method: :delete, data: {confirm: "Estas Seguro?"} %></td>
+	<td> <%= get_name(review) %></td>
+	<% if current_user %>
+		<% if	show_delete(review) %>
+  		<td><%= link_to "Borrar", poke_review_path(review.poke, review), method: :delete, data: {confirm: "Estas Seguro?"} %></td>
+		<% end %>
+	<% end %>
 </tr>

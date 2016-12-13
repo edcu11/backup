@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  skip_before_action :authenticate, except: [:new, :create, :edit, :destroy]
   def index
     @categories = Category.order(:id)
   end

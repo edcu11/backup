@@ -9,12 +9,7 @@
 
 <%= form_for :session, url: login_path do |f| %>
 	<div class="form-group">
-	<%= f.label :email %>
-	<%= f.email_field :email, class: "form-control" %>
-	</div>
-
-	<div class="form-group">
-	<%= f.label :username %>
+	<%= f.label :username, "Usuario o email" %>
 	<%= f.text_field :username, class: "form-control" %>
 	</div>
 

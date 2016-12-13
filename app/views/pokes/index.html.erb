@@ -23,5 +23,9 @@
 	</tbody>
 </table>
 
-<p> <%= link_to "New", new_poke_path , class:"btn btn-default btn-lg"%> </p>
-<p> <%= link_to "Agregar Categoria a Pokemon", new_catpok_path , class:"btn btn-default btn-lg"%> </p>
+<% if current_user %>
+	<% if current_user == User.find_by(username: 'System') %>
+		<p> <%= link_to "New", new_poke_path , class:"btn btn-default btn-lg"%> </p>
+		<p> <%= link_to "Agregar Categoria a Pokemon", new_catpok_path , class:"btn btn-default btn-lg"%> </p>
+	<% end %>
+<%end%>

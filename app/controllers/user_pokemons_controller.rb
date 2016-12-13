@@ -1,4 +1,5 @@
 class UserPokemonsController < ApplicationController
+  skip_before_action :authenticate
   def create
     @user_pokemon = UserPokemon.new(user_pokemon_params)
 

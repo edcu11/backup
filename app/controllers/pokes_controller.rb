@@ -1,4 +1,6 @@
 class PokesController < ApplicationController
+  skip_before_action :authenticate, except: [:new, :create, :edit, :update, :destroy]
+
   def index
     @pokes = Poke.order(:name)
   end
@@ -6,6 +8,7 @@ class PokesController < ApplicationController
   def show
     @poke = Poke.find(params[:id])
     @userpok = UserPokemon.new
+
   end
 
   def new

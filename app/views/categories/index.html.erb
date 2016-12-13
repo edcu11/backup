@@ -16,4 +16,9 @@
 			<%= render @categories %>
 	</tbody>
 </table>
-		<p> <%= link_to "Agregar Categoria", new_category_path %> </p>
+
+<% if current_user %>
+	<% if current_user == User.find_by(username: 'System') %>
+	<p> <%= link_to "Agregar Categoria", new_category_path %> </p>
+	<% end %>
+<%end%>
