@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     username = params[:session][:username]
 
 
-    @user = User.find_by(email: username)
+    @user = User.find_by(email: username) || User.find_by(username: username)
 
   	if @user && @user.authenticate(password)
   		login(@user)

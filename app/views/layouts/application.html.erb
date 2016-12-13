@@ -10,59 +10,50 @@
 
 
   <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
-                    <i class="fa fa-play-circle"></i> <span class="light">Pokemons</span>
-                </a>
-            </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <%= link_to "Home", root_path %>
-                    </li>
-                    <li>
-                        <%= link_to "Pokemon", pokes_path %>
-                    </li>
-                    <li>
-                      <%= link_to "Categories", categories_path %>
-                    </li>
-                    <% if current_user %>
-                    <li>
-                      <%= link_to "Profile", profile_path %>
-                    </li>
-                    
-                    <li>
-                      <%= link_to "Log Out", logout_path, data: {method: :delete} %>
-                    </li>
-                    <% else%>
-                    <li>
-                      <%= link_to "Sign In", login_path %>
-                    </li>
-                    <li>
-                      <%= link_to "Sign Up", new_user_path  %>
-                    </li>
-                    <%end%>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+<nav class="navbar navbar-light" style="background-color: #333333; font-size: 25px" role="navigation">
+  <a class="navbar-brand" style="font-size: 30px !important; padding-left: 130px">Pokemon Center</a>
 
+  <ul class="nav navbar-nav navbar-right">
+    <li class="nav-item">
+      <%= link_to "Home", root_path %>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to "Pokemon", pokes_path %>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to "Categories", categories_path %>
+    </li>
+    <% if current_user %>
+
+    <li class="nav-item">
+      <%= link_to "Profile", profile_path %>
+    </li>
+
+    <li class="nav-item" style="padding-right: 130px">
+      <%= link_to "Log Out", logout_path, data: {method: :delete} %>
+    </li>
+
+    <% else%>
+
+    <li class="nav-item">
+      <%= link_to "Sign In", login_path %>
+    </li>
+
+    <li class="nav-item" style="padding-right: 130px">
+      <%= link_to "Sign Up", new_user_path  %>
+    </li>
+
+    <%end%>
+
+  </ul>
+
+</nav>
 
   <div align= "center">
-    <body background = "http://cdn.wallpapersafari.com/55/44/tvlMso.jpg">
+    <body background = "https://files.graphiq.com/2307/media/images/Light_Gray_429810_i0.png">
     <%= yield %>
   </div>
 

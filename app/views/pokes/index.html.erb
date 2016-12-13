@@ -6,11 +6,11 @@
 	</div>
 <% end %>
 
-<table border ="1" class="table table-hover">
+<table border ="1" class="table table-striped" style="width: 800px; text-align: center">
 	<thead>
 		<tr>
-			<th>ID</th>
-			<th>Nombre</th>
+			<th style="text-align: center">ID</th>
+			<th style="text-align: center">Nombre</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -22,6 +22,8 @@
 		<%- end %>
 	</tbody>
 </table>
+
+<%= image_tag("group.png", height: "242", width: "996") %>
 
 <% if current_user %>
 	<% if current_user == User.find_by(username: 'System') %>

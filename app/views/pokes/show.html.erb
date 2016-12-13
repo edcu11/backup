@@ -1,22 +1,20 @@
 
-<h1>Listing Pokemon with Id <%=@poke.id %></h1>
+<h1 style="font-size: 100px"><%=@poke.name %></h1>
 <% if flash[:notice] %>
   <div style="background: yellow">
     <%= flash[:notice] %>
   </div>
 <% end %>
-<ul class="list-group" >
+
+<div style= "float: left; padding-left: 200px" >
+  <%= image_tag @poke.avatar_url, style: "heigth: 400px; width: 400px;"%>
+</div>
+
+<ul class="list-group" style="list-style-type: none; padding-bottom: 80px; padding-top: 80px; font-size: 40px">
   <li>
     ID:
     <strong><%= @poke.id %></strong>
   </li>
-  <li>
-    <%= image_tag @poke.avatar_url %>
-  </li>
-	<li>
-		Nombre:
-		<strong><%= @poke.name %></strong>
-	</li>
 	<li>
 		Attack:
 		<strong><%= @poke.attack %></strong>

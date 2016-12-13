@@ -1,11 +1,11 @@
 
-<h1>Listing <%=@category.nombre %></h1>
+<h1 style="font-size: 100px"><%=@category.nombre %></h1>
 <% if flash[:notice] %>
   <div style="background: yellow">
     <%= flash[:notice] %>
   </div>
 <% end %>
-<ul>
+<ul style="list-style-type: none; font-size: 40px">
   <li>
     ID:
     <strong><%= @category.id %></strong>

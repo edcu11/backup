@@ -1,11 +1,11 @@
 
-<h1>Listing User with Id <%=@current_user.id %></h1>
+<h1 style="font-size: 100px">Profile</h1>
 <% if flash[:notice] %>
   <div style="background: yellow">
     <%= flash[:notice] %>
   </div>
 <% end %>
-<ul class="list-group" >
+<ul class="list-group" style="list-style-type: none; font-size: 40px">
   <li>
     ID:
     <strong><%= @current_user.id %></strong>

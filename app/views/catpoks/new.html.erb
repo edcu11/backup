@@ -15,18 +15,19 @@
 <% end %>
 
 <%= form_for @catpok do |f| %>
-
-<div>
-	<%= f.label :poke_id, "Pokemon", class: "input-group" %>
-	<%= f.select :poke_id, Poke.pluck(:name, :id), {} , class: "form-control" %>
+<div style= "width: 800px">
+  <div>
+  	<%= f.label :poke_id, "Pokemon", class: "input-group" %>
+  	<%= f.select :poke_id, Poke.pluck(:name, :id), {} , class: "form-control" %>
+  </div>
+  <div>
+  	<%= f.label :category_id, "Category" , class: "input-group"%>
+  	<%= f.select :category_id, Category.pluck(:nombre, :id), {} , class: "form-control", id:"sel1"%>
+  </div>
+  <p>
+    <%= f.submit "Crear", class:"btn btn-default btn-lg" %>
+    <%= link_to "Cancelar", pokes_path, class:"btn btn-default btn-lg" %>
+  </p>
 </div>
-<div>
-	<%= f.label :category_id, "Category" , class: "input-group"%>
-	<%= f.select :category_id, Category.pluck(:nombre, :id), {} , class: "form-control", id:"sel1"%>
-</div>
-<p>
-  <%= f.submit "Crear", class:"btn btn-default btn-lg" %>
-  <%= link_to "Cancelar", pokes_path, class:"btn btn-default btn-lg" %>
-</p>
 
 <% end %>

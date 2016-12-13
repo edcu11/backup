@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      UserNotifier.signup_email(@user).deliver
       redirect_to root_path, notice: "Se agrego exitosamente."
     else
       render :new
@@ -22,6 +23,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
 
     if @user.update_attributes(user_params)
+      UserNotifier.data_edit(@user).deliver
       redirect_to profile_path,  notice: "Se edito con exito companero"
     else
       render :edit

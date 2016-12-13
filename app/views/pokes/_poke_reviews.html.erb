@@ -1,15 +1,12 @@
 <% if reviews.any? %>
 	<div>
 		<h2>Reviews: </h2>
-		<table border="2">
+		<table border ="1" class="table table-striped" style="width: 500px; text-align: center">
 			<thead>
 				<th>Fecha</th>
         <th>Descripcion</th>
         <th>Review</th>
 				<th>Author</th>
-        <th>
-
-        </th>
 			</thead>
 			<tbody>
 				<%= render reviews %>
@@ -17,5 +14,5 @@
 		</table>
 	</div>
 <% else %>
-	<p><em>No hay reviews.</em></p>
+	<p style="font-size: 30px"><em>No hay reviews.</em></p>
 <% end %>
